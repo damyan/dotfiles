@@ -1,0 +1,5 @@
+[user]
+    name = Damyan Yordanov
+    email = damyan+dev@0x4711.org
+[core]
+    editor = vim
