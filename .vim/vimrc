@@ -69,7 +69,7 @@ command! W w
 
 "vmap X /y<C-R>"<CR>
 
-set rtp+=/home/damyan/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'fatih/vim-go'
 Plugin 'Yggdroot/indentLine'
