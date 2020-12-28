@@ -49,6 +49,16 @@ cp ${dot_files_folder}/${tmux_config_path} ${HOME}/${tmux_config_path}
 
 #################### BASH ####################
 bash_config_path=.bashrc
+git_bash_folder="${HOME}/.bash-git-prompt"
+git_bash_repo=https://github.com/magicmonty/bash-git-prompt.git
+
+if [ ! -d "${git_bash_folder}" ]; then
+  git clone $git_bash_repo "${git_bash_folder}"
+else
+  pushd $git_bash_folder
+  git pull
+  popd
+fi
 
 if [ -f "${HOME}/${bash_config_path}" ]; then
   cp ${HOME}/${bash_config_path} ${backup_folder}/${bash_config_path}-${suffix}
