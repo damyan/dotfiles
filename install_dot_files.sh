@@ -14,8 +14,13 @@ dot_files_folder="${HOME}/.dotfiles"
 vim_folder=.vim
 vim_config_file=vimrc
 vim_config_path="${vim_folder}/${vim_config_file}"
+vundle_folder="${vim_folder}/bundle/Vundle.vim"
+vundle_repo=https://github.com/VundleVim/Vundle.vim.git
 
 if [ -d "${HOME}/${vim_folder}" ]; then
+  if [ ! -d "${HOME}/${vundle_folder}" ]; then
+    git clone $vundle_repo "${HOME}/${vundle_folder}"
+  fi
   if [ -f "${HOME}/${vim_config_path}" ]; then
     mv ${HOME}/${vim_config_path} ${HOME}/${vim_config_path}-${suffix}
   fi
