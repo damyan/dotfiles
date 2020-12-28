@@ -23,16 +23,15 @@ vundle_folder="${vim_folder}/bundle/Vundle.vim"
 vundle_repo=https://github.com/VundleVim/Vundle.vim.git
 
 if [ -d "${HOME}/${vim_folder}" ]; then
-  if [ ! -d "${HOME}/${vundle_folder}" ]; then
-    git clone $vundle_repo "${HOME}/${vundle_folder}"
-  fi
   if [ -f "${HOME}/${vim_config_path}" ]; then
     mv ${HOME}/${vim_config_path} ${backup_folder}/${vim_config_file}-${suffix}
   fi
 else
   mkdir -p "${HOME}/${vim_folder}"
 fi
-
+if [ ! -d "${HOME}/${vundle_folder}" ]; then
+  git clone $vundle_repo "${HOME}/${vundle_folder}"
+fi
 cp ${dot_files_folder}/${vim_config_path} ${HOME}/${vim_config_path}
 #################### vim ####################
 
