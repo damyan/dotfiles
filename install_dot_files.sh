@@ -36,8 +36,9 @@ function config_vim {
       git clone $vundle_repo "${HOME}/${vundle_folder}"
     fi
     ln -s ${dot_files_folder}/${vim_config_path} ${HOME}/${vim_config_path}
-    echo "Vim: done\n"
+    echo "Vim: done"
   fi
+  echo -e "#################### vim ####################\n"
 }
 
 function config_tmux {
@@ -51,12 +52,13 @@ function config_tmux {
       mv ${HOME}/${tmux_config_path} ${backup_folder}/${tmux_config_path}-${suffix}
     fi
     ln -s ${dot_files_folder}/${tmux_config_path} ${HOME}/${tmux_config_path}
-    echo "Tmux: done\n"
+    echo "Tmux: done"
   fi
+  echo -e "#################### tmux ####################\n"
 }
 
 function config_bash {
-  echo #################### BASH ####################
+  echo "#################### BASH ####################"
   bash_config_path=.bashrc
   git_bash_folder="${HOME}/.bash-git-prompt"
   git_bash_repo=https://github.com/magicmonty/bash-git-prompt.git
@@ -71,8 +73,9 @@ function config_bash {
       mv ${HOME}/${bash_config_path} ${backup_folder}/${bash_config_path}-${suffix}
     fi
     ln -s ${dot_files_folder}/${bash_config_path} ${HOME}/${bash_config_path}
-    echo "Bash: done\n"
+    echo "Bash: done"
   fi
+  echo -e "#################### BASH ####################\n"
 }
 
 config_vim
