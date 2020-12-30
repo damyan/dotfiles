@@ -55,12 +55,7 @@ function config_bash {
 
   if [ ! -d "${git_bash_folder}" ]; then
     git clone $git_bash_repo "${git_bash_folder}"
-  else
-    pushd $git_bash_folder
-    git pull
-    popd
   fi
-
   if [ -f "${HOME}/${bash_config_path}" ]; then
     mv ${HOME}/${bash_config_path} ${backup_folder}/${bash_config_path}-${suffix}
   fi
