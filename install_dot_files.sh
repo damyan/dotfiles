@@ -65,6 +65,7 @@ function config_bash {
   else
     if [ ! -d "${git_bash_folder}" ]; then
       git clone $git_bash_repo "${git_bash_folder}"
+      git checkout 2.4.1
     fi
     if [ -f "${HOME}/${bash_config_path}" ]; then
       mv ${HOME}/${bash_config_path} ${backup_folder}/${bash_config_path}-${suffix}

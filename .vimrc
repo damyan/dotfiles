@@ -56,13 +56,6 @@ nmap <silent> g[ i[<Esc>ea]<Esc>
 nmap <silent> g" i"<Esc>ea"<Esc>
 nmap <silent> g' i'<Esc>ea'<Esc>
 
-map <F12> :GoDebugStop<CR>
-"map <F11> :GoDebugStep<CR>
-"map <F10> :GoDebugNext<CR>
-"map <F9> :GoDebugBreakpoint<CR>
-"map <F8> :GoDebugHalt<CR>
-map <F6> :GoDebugStart<CR>
-"map <F5> :GoDebugContinue<CR>
 
 cmap w!! w !sudo tee % > /dev/null
 
@@ -99,19 +92,3 @@ command! W w
 
 "vmap X /y<C-R>"<CR>
 
-" vundle plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'fatih/vim-go'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'Yggdroot/indentLine'
-Plugin 'preservim/nerdtree'
-call vundle#end()
-
-filetype on
-filetype plugin on
-filetype plugin indent on
-let g:indentLine_enabled = 1
-let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1
-:set listchars+=tab:\ \ 
