@@ -35,6 +35,7 @@ set laststatus=2
 set foldmethod=indent
 set foldlevel=99
 
+nmap <silent> gc :bufdo :bd<CR>
 nmap <silent> gq :nohlsearch<CR>
 nmap <silent> gl :set list! number!<CR>
 nmap <silent> gp :set paste!<CR>
