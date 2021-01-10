@@ -10,6 +10,7 @@ endif
 
 set background=dark
 set history=1000
+set undolevels=1000
 set suffixesadd+=.py,.go
 
 set hidden
@@ -34,6 +35,12 @@ set laststatus=2
 
 set foldmethod=indent
 set foldlevel=99
+
+" Disable stupid backup and swap files - they trigger too many events
+" for file system watchers
+set nobackup
+set nowritebackup
+set noswapfile
 
 nmap <silent> gc :bufdo :bd<CR>
 nmap <silent> gq :nohlsearch<CR>
@@ -62,14 +69,30 @@ nnoremap k gk
 nnoremap <S-TAB> zk
 nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
 
+" bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
+" Every unnecessary keystroke that can be saved is good for your health :)
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" easier moving of code blocks
+" Try to go into visual mode (v), thenselect several lines of code here and
+" then press ``>`` several times.
+vnoremap < <gv  " better indentation
+vnoremap > >gv  " better indentation
+
+" needed?
 let g:skip_defaults_vim = 1
 let python_highlight_all = 1
 
+" I know, I am a slappy typist
 command! Q q
 command! W w
 
 "vmap X /y<C-R>"<CR>
 
+" vundle plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'fatih/vim-go'
