@@ -44,7 +44,7 @@ set noswapfile
 
 nmap <silent> gc :bufdo :bd<CR>
 nmap <silent> gq :nohlsearch<CR>
-nmap <silent> gl :set list! number!<CR>
+nmap <silent> gl :set list! number! <CR> && :IndentLinesToggle <CR>
 nmap <silent> gp :set paste!<CR>
 nmap <silent> gn :NERDTreeToggle<CR>
 nmap <silent> gx :bufdo :bd<CR>
