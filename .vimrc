@@ -106,6 +106,8 @@ Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'Yggdroot/indentLine'
 Plugin 'preservim/nerdtree'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 call vundle#end()
 
 filetype on
