@@ -56,11 +56,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@pernik\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@pernik:\w\$ '
-fi
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 
 unset color_prompt force_color_prompt
 
@@ -131,9 +127,8 @@ echo -e "\033[0;31mDirectory \033[1;37m: \033[1;33m$(pwd)"
 echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h -x tmpfs)\033[0;29m"
 
 alias git-bash='GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh'
-alias log='echo -n $(date +[%H:%M:%S\ %d.%m.%y])\ $(whoami)\ \*\*\*\  | sudo tee -a /home/.log && sudo $EDITOR /home/.log'
-alias logcat='sudo less /home/.log'
-alias news-err='cat ~/.newsboat/error.log | awk {'\''print $6'\''} | sort -nr | uniq -c | sort -nr'
+alias start-vm-pxe='sudo /media/data/vm/start-vm-damyan --bridge mgmt0 --pxe /media/data/vm/damyan'
+alias start-vm='sudo /media/data/vm/start-vm-damyan --bridge mgmt0 /media/data/vm/damyan.raw'
 alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 
@@ -141,10 +136,14 @@ alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 mcd() { mkdir -p "$1" && cd "$1"; }
 
 # ssh agent
-eval `keychain -q id_rsa --eval`
-
 # git bash by default
 GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh
 
 # needed for git PGP-signed commits
 export GPG_TTY=$(tty)
+
+#eval `keychain -q id_rsa --eval`
+alias get-config4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp4" ] }'\'' http://localhost:8000/ | jq'
+alias get-config6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp6" ] }'\'' http://localhost:8000/ | jq'
+alias get-leases4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease4-get-all", "service": [ "dhcp4" ] }'\'' http://127.0.0.1:8000/ | jq'
+alias get-leases6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease6-get-all", "service": [ "dhcp6" ] }'\'' http://127.0.0.1:8000/ | jq'
