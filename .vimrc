@@ -44,7 +44,7 @@ set noswapfile
 
 nmap <silent> gc :bufdo :bd<CR>
 nmap <silent> gq :nohlsearch<CR>
-nmap <silent> gl :set list! number!<CR>&&:IndentLinesToggle<CR>
+nmap <silent> gl :set list! number!<CR>:IndentLinesToggle<CR>
 nmap <silent> gp :set paste!<CR>
 nmap <silent> gn :NERDTreeToggle<CR>
 nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>:noh<CR>
