@@ -119,6 +119,7 @@ fi
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
+export KUBECONFIG=$HOME/.kube/config-taiga.yaml
 export EDITOR="vim"
 export GOPATH=~/go
 export HISTTIMEFORMAT="%d/%m/%y %T "
@@ -126,7 +127,7 @@ export HTTP_PROXY=""
 export LC_ALL="en_US.UTF-8"
 export LOCALDOMAIN="0x4711.org"
 #export LS_COLORS="no=00:fi=00:di=01:ln=00:pi=00:so=00:bd=00:cd=00:or=00:ex=00"
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$GOPATH/bin:$PATH"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$GOPATH/bin:$HOME/bin:$PATH"
 export TERM=xterm-256color
 
 echo -e "\033[0;31mHostname \033[1;37m: \033[1;33m$(hostname)"
