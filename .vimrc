@@ -42,7 +42,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-nmap <silent> gc :bufdo :bd<CR>
+nmap <silent> gx :bdelete<CR>
+nmap <silent> gc :bufdo :bdelete<CR>
 nmap <silent> gq :nohlsearch<CR>
 nmap <silent> gl :set list! number!<CR>:IndentLinesToggle<CR>
 nmap <silent> gp :set paste!<CR>
@@ -73,10 +74,6 @@ map <F6> :GoDebugStart<CR>
 "map <F5> :GoDebugContinue<CR>
 
 cmap w!! w !sudo tee % > /dev/null
-
-nmap <C-n> :bn<CR>
-nmap <C-p> :bp<CR>
-nmap <C-x> :bd<CR>
 
 nnoremap j gj
 nnoremap k gk
@@ -116,6 +113,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'preservim/nerdtree'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+Plugin 'tpope/vim-unimpaired'
 call vundle#end()
 
 filetype on
