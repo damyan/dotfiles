@@ -56,14 +56,14 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+PS1='${debian_chroot:+($debian_chroot)}\u@mgmt1.fra3:\w\$ '
 
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@mgmt1.fra3: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -114,7 +114,6 @@ export GOPATH=~/go
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HTTP_PROXY=""
 export LC_ALL="en_US.UTF-8"
-export LOCALDOMAIN="0x4711.org"
 #export LS_COLORS="no=00:fi=00:di=01:ln=00:pi=00:so=00:bd=00:cd=00:or=00:ex=00"
 export PATH="/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:$HOME/bin:$PATH"
 export TERM=xterm-256color
@@ -143,7 +142,7 @@ GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh
 export GPG_TTY=$(tty)
 
 #eval `keychain -q id_rsa --eval`
-alias get-config4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp4" ] }'\'' http://localhost:8000/ | jq'
-alias get-config6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp6" ] }'\'' http://localhost:8000/ | jq'
-alias get-leases4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease4-get-all", "service": [ "dhcp4" ] }'\'' http://127.0.0.1:8000/ | jq'
-alias get-leases6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease6-get-all", "service": [ "dhcp6" ] }'\'' http://127.0.0.1:8000/ | jq'
+alias get-config4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp4" ] }'\'' http://10.96.10.3:8000/ | jq'
+alias get-config6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp6" ] }'\'' http://10.96.10.3:8000/ | jq'
+alias get-leases4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease4-get-all", "service": [ "dhcp4" ] }'\'' http://10.96.10.3:8000/ | jq'
+alias get-leases6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease6-get-all", "service": [ "dhcp6" ] }'\'' http://10.96.10.3:8000/ | jq'
