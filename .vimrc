@@ -44,10 +44,8 @@ set noswapfile
 
 nmap <silent> gx :bdelete<CR>
 nmap <silent> gc :bufdo :bdelete<CR>
-nmap <silent> [ot :IndentLinesEnable<CR>
-nmap <silent> ]ot :IndentLinesDisable<CR>
-nmap <silent> [oo :set list number<CR>:IndentLinesEnable<CR>
-nmap <silent> ]oo :set nolist nonumber<CR>:IndentLinesDisable<CR>
+nmap <silent> [oo :set list number<CR>
+nmap <silent> ]oo :set nolist nonumber<CR>
 nmap <silent> [op :set paste<CR>
 nmap <silent> ]op :set nopaste<CR>
 nmap <silent> gn :NERDTreeToggle<CR>
@@ -112,7 +110,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'Yggdroot/indentLine'
 Plugin 'preservim/nerdtree'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
@@ -122,7 +119,6 @@ call vundle#end()
 filetype on
 filetype plugin on
 filetype plugin indent on
-let g:indentLine_enabled = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 :set listchars+=tab:\ \ 
