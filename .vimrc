@@ -72,6 +72,9 @@ nmap <silent> G" i"<Esc>eA"<Esc>
 nmap <silent> g' i'<Esc>ea'<Esc>
 nmap <silent> G' i'<Esc>eA'<Esc>
 
+nmap <silent> gm :GoDecls<CR>
+nmap <silent> gM :GoDeclsDir<CR>
+
 map <F12> :GoDebugStop<CR>
 "map <F11> :GoDebugStep<CR>
 "map <F10> :GoDebugNext<CR>
