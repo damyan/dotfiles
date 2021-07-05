@@ -114,6 +114,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
 filetype on
