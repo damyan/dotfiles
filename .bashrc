@@ -15,7 +15,6 @@ echo -e "\033[0;31mLocal Time \033[1;37m: \033[1;33m$(date)"
 echo -e "\033[0;31mDirectory \033[1;37m: \033[1;33m$(pwd)"
 echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h -x tmpfs)\033[0;29m"
 
-alias git-bash='GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh'
 alias news-err='cat ~/.newsboat/error.log | awk {'\''print $6'\''} | sort -nr | uniq -c | sort -nr'
 alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
@@ -23,3 +22,5 @@ alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 # ssh agent
 eval `keychain -q id_rsa --eval`
 
+# git bash by default
+GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh
