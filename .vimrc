@@ -46,6 +46,7 @@ nmap <silent> gx :bdelete<CR>
 nmap <silent> gc :bufdo :bdelete<CR>
 nmap <silent> [oo :set list number<CR>
 nmap <silent> ]oo :set nolist nonumber<CR>
+nmap <silent> ]oa :nohlsearch<CR>
 nmap <silent> [op :set paste<CR>
 nmap <silent> ]op :set nopaste<CR>
 nmap <silent> gn :NERDTreeToggle<CR>
