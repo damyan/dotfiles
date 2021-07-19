@@ -122,4 +122,7 @@ filetype plugin on
 filetype plugin indent on
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
-:set listchars+=tab:\ \ 
+
+" always show EOFs. show tabs, unless go file
+set listchars=tab:▸\ ,eol:¬
+autocmd FileType go set listchars+=tab:\ \ 
