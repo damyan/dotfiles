@@ -3,7 +3,7 @@
 [user]
   email = damyan.yordanov@sap.com
   name = Damyan Yordanov
-  signingkey = A8D0CBE2F30047C4E54BFD1133263EED429B2D89
+  signingkey = EF0423AD503A0538F95AB209384EB14BBE5E06CD
 [pull]
   rebase = true
 [rebase]
