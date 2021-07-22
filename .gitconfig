@@ -1,8 +1,11 @@
 [receive]
   denyCurrentBranch = ignore
 [user]
-  email = damyan+dev@0x4711.org
+  email = damyan.yordanov@sap.com
   name = Damyan Yordanov
+  signingkey = EF0423AD503A0538F95AB209384EB14BBE5E06CD
+[commit]
+  gpgsign = true
 [pull]
   rebase = true
 [rebase]
