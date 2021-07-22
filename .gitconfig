@@ -1,7 +1,7 @@
 [receive]
   denyCurrentBranch = ignore
 [user]
-  email = damyan+dev@0x4711.org
+  email = damyan.yordanov@sap.com
   name = Damyan Yordanov
   signingkey = A8D0CBE2F30047C4E54BFD1133263EED429B2D89
 [pull]
