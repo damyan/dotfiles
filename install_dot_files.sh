@@ -14,6 +14,20 @@ if [ ! -d "${backup_folder}" ]; then
   mkdir -p ${backup_folder}
 fi
 
+function config_mkv {
+  echo "#################### mkv ####################"
+  mkv_bin_file=mkv
+
+  # handle bin folder
+  if [ ! -d "${HOME}/bin" ]; then
+    mkdir -p "${HOME}/bin"
+  fi
+
+  ln -s "${dot_files_folder}/${mkv_bin_file}" "${HOME}/bin/${mkv_bin_file}"
+  echo "Mkv: done"
+  echo -e "#################### mkv ####################\n"
+}
+
 function config_vim {
   echo "#################### vim ####################"
   vim_folder=.vim
@@ -74,6 +88,8 @@ function config_bash {
   fi
   echo -e "#################### BASH ####################\n"
 }
+
+config_mkv
 
 config_vim
 
