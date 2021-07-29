@@ -28,3 +28,7 @@ jobs:
       # Runs installation script
       - name: Run the installation script
         run: bash ${{ github.workspace }}/install_dot_files.sh
+
+      # Runs installation script for a second time, make sure the installation is idempotent
+      - name: Run the installation script again, test idempotent installation
+        run: bash ${{ github.workspace }}/install_dot_files.sh
