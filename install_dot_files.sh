@@ -23,8 +23,13 @@ function config_mkv {
     mkdir -p "${HOME}/bin"
   fi
 
-  ln -s "${dot_files_folder}/${mkv_bin_file}" "${HOME}/bin/${mkv_bin_file}"
-  echo "Mkv: done"
+  # handle mkv binary
+  if [ -L "${HOME}/bin/${mkv_bin_file}" ]; then
+    echo "Binary mkv already a symlink, nothing to do"
+  else
+    ln -s "${dot_files_folder}/${mkv_bin_file}" "${HOME}/bin/${mkv_bin_file}"
+    echo "Mkv: done"
+  fi
   echo -e "#################### mkv ####################\n"
 }
 
