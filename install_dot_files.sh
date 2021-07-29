@@ -11,7 +11,7 @@ dot_files_folder="${HOME}/.dotfiles"
 backup_folder="${HOME}/.backup"
 
 if [ ! -d "${backup_folder}" ]; then
-  mkdir -p ${backup_folder}
+  mkdir -p "${backup_folder}"
 fi
 
 function config_mkv {
@@ -46,7 +46,7 @@ function config_vim {
   if [ -L "${HOME}/${vim_config_path}" ]; then
     echo "Vim config already a symlink, nothing to do"
   else
-    ln -s ${dot_files_folder}/${vim_config_path} ${HOME}/${vim_config_path}
+    ln -s "${dot_files_folder}/${vim_config_path}" "${HOME}/${vim_config_path}"
     echo "Vim: done"
   fi
   echo -e "#################### vim ####################\n"
@@ -60,9 +60,9 @@ function config_tmux {
     echo "Tmux config already a symlink, nothing to do"
   else
     if [ -f "${HOME}/${tmux_config_path}" ]; then
-      mv ${HOME}/${tmux_config_path} ${backup_folder}/${tmux_config_path}-${suffix}
+      mv "${HOME}/${tmux_config_path}" "${backup_folder}/${tmux_config_path}-${suffix}"
     fi
-    ln -s ${dot_files_folder}/${tmux_config_path} ${HOME}/${tmux_config_path}
+    ln -s "${dot_files_folder}/${tmux_config_path}" "${HOME}/${tmux_config_path}"
     echo "Tmux: done"
   fi
   echo -e "#################### tmux ####################\n"
@@ -78,12 +78,12 @@ function config_bash {
     echo "Bash config already a symlink, nothing to do"
   else
     if [ ! -d "${git_bash_folder}" ]; then
-      git clone $git_bash_repo "${git_bash_folder}"
+      git clone "$git_bash_repo" "${git_bash_folder}"
     fi
     if [ -f "${HOME}/${bash_config_path}" ]; then
-      mv ${HOME}/${bash_config_path} ${backup_folder}/${bash_config_path}-${suffix}
+      mv "${HOME}/${bash_config_path}" "${backup_folder}/${bash_config_path}-${suffix}"
     fi
-    ln -s ${dot_files_folder}/${bash_config_path} ${HOME}/${bash_config_path}
+    ln -s "${dot_files_folder}/${bash_config_path}" "${HOME}/${bash_config_path}"
     echo "Bash: done"
   fi
   echo -e "#################### BASH ####################\n"
