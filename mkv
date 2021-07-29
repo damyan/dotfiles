@@ -1,0 +1,156 @@
+#!/bin/sh
+#
+# Copyright (c) 2010  Peter Pentchev
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+
+set -e
+
+usage()
+{
+  cat <<EOU
+Usage:  mkv [-hV] dircomponent [file...]
+  -h  display this usage message and exit;
+  -V  display program version information and exit.
+EOU
+}
+
+version()
+{
+  echo 'mkv 0.02'
+}
+
+basedir=''
+h_or_V=''
+while getopts 'hV' o; do
+  case "$o" in
+    h)
+      usage
+      h_or_V=1
+      ;;
+    V)
+      version
+      h_or_V=1
+      ;;
+    *)
+      usage 1>&2
+      exit 1
+      ;;
+  esac
+done
+[ -n "$h_or_V" ] && exit 0
+
+if [ $# -lt 1 ]; then
+  usage 1>&2
+  exit 1
+fi
+dircomp="$1"
+shift
+if [ -z "$dircomp" ] ||
+   ! expr "x$dircomp" : 'x[A-Za-z0-9_-]*$' > /dev/null; then
+  echo "Invalid directory component name: $dircomp" 1>&2
+  exit 1
+fi
+
+[ -n "$basedir" ] || basedir="$MKV_BASE"
+if [ -z "$basedir" ]; then
+  username=''
+  for t in "$USER" "$LOGNAME" "`whoami`"; do
+    if [ -n "$t" ]; then
+      username="$t"
+      break
+    fi
+  done
+  if [ -z "$username" ]; then
+    echo 'Could not determine your username!' 1>&2
+    exit 1
+  fi
+
+  homedir=''
+  for t in ~ "$HOME" "/home/$username" "/home/$USER" "/home/$LOGNAME"; do
+    if [ -d "$t" ] && [ -w "$t" ]; then
+      homedir="$t"
+      break
+    fi
+  done
+  if [ -z "$homedir" ]; then
+    echo 'Could not find a suitable home directory!' 1>&2
+    exit 1
+  fi
+
+  tmpdir=''
+  for t in "$HOME/tmp" "$TEMPDIR" "$TEMP" "$TMP" '/var/tmp' '/tmp'; do
+    if [ -d "$t" ] && [ -w "$t" ]; then
+      tmpdir="$t"
+      break
+    fi
+  done
+  if [ -z "$tmpdir" ]; then
+    echo 'Could not find a suitable temporary directory!' 1>&2
+    exit 1
+  fi
+
+  basedir="$tmpdir/v/$username"
+fi
+
+shell=''
+for t in "$SHELL" '/bin/bash' '/bin/sh'; do
+  if [ -n "$t" ] && [ -x "$t" ]; then
+    shell="$t"
+    break
+  fi
+done
+if [ -z "$shell" ]; then
+  echo 'Could not determine a shell to run!' 1>&2
+  exit 1
+fi
+
+mkdir -p -m 700 "$basedir"
+
+dirname="$basedir/$dircomp"
+mkdir -m 700 "$dirname"
+if [ $# -gt 0 ]; then
+  if ! cp -r "$@" "$dirname"; then
+    echo 'Could not move files into the temporary directory' 1>&2
+    rm -rf "$dirname"
+    exit 1
+  fi
+fi
+cd "$dirname"
+"$shell" || true
+
+cat <<EOM
+
+=========== mkv: You seem to be done with the temporary directory
+
+Hit Enter to remove the temporary directory '$dirname', or enter
+any non-empty string to let it be:
+EOM
+
+read t
+if [ -z "$t" ]; then
+  cd "$basedir"
+  rm -rf "$dirname"
+  echo "Successfully removed the temporary directory '$dirname'"
+fi
+
