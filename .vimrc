@@ -16,6 +16,7 @@ set suffixesadd+=.py,.go
 set hidden
 set list
 set number
+set linebreak
 
 set tabstop=2
 set shiftwidth=2
