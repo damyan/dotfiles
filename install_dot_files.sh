@@ -94,6 +94,22 @@ function config_bash {
   echo -e "#################### BASH ####################\n"
 }
 
+function config_git {
+  echo "#################### git ####################"
+  git_config_path=.gitconfig
+
+  if [ -L "${HOME}/${git_config_path}" ]; then
+    echo "Git config already a symlink, nothing to do"
+  else
+    if [ -f "${HOME}/${git_config_path}" ]; then
+      mv "${HOME}/${git_config_path}" "${backup_folder}/${git_config_path}-${suffix}"
+    fi
+    ln -s "${dot_files_folder}/${git_config_path}" "${HOME}/${git_config_path}"
+    echo "Git: done"
+  fi
+  echo -e "#################### git ####################\n"
+}
+
 config_mkv
 
 config_vim
@@ -102,3 +118,4 @@ config_tmux
 
 config_bash
 
+config_git
