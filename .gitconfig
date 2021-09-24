@@ -1,7 +1,7 @@
 [receive]
-	denyCurrentBranch = ignore
+  denyCurrentBranch = ignore
 [user]
   email = damyan+dev@0x4711.org
-	name = Damyan Yordanov
+  name = Damyan Yordanov
 [pull]
   rebase = true
