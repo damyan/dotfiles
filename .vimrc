@@ -10,6 +10,7 @@ endif
 
 scriptencoding utf-8
 set encoding=utf-8
+set backspace=indent,eol,start
 
 set background=dark
 set history=1000
