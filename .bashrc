@@ -128,8 +128,10 @@ echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h -x tmpfs)\033[0;29m"
 alias git-bash='GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh'
 alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
 alias k='kubectl'
-alias start-vm-pxe='sudo /media/data/vm/start-vm-damyan --bridge mgmt0 --pxe /media/data/vm/damyan'
-alias start-vm='sudo /media/data/vm/start-vm-damyan --bridge mgmt0 /media/data/vm/damyan.raw'
+alias start-vm-pxe='$HOME/persistent/vm/start-vm --pxe $HOME/persistent/vm/damyan'
+alias start-vm='$HOME/persistent/vm/start-vm $HOME/persistent/vm/damyan.raw'
+alias start='qemu-system-x86_64 -smp 2 -m 4096 -watchdog i6300esb -device virtio-balloon -device virtio-rng-pci,rng=rng0 -object rng-random,id=rng0,filename=/dev/random -nographic -device virtio-scsi-pci,id=scsi0 -device scsi-hd,drive=drive0,bus=scsi0.0 -drive format=raw,if=none,discard=unmap,aio=native,cache.direct=on,id=drive0,file=$HOME/persistent/vm/damyan.raw -netdev user,id=net0,hostfwd=tcp::10022-:22 -device virtio-net-pci,netdev=net0,mac=02:02:11:47:11:47 -netdev bridge,id=net1,br=test0 -device virtio-net-pci,netdev=net1,mac=02:02:11:47:11:48 -enable-kvm -cpu host'
+alias start2='qemu-system-x86_64 -smp 2 -m 2048 -boot n -watchdog i6300esb -device virtio-balloon -device virtio-rng-pci,rng=rng0 -object rng-random,id=rng0,filename=/dev/random -nographic -device virtio-scsi-pci,id=scsi0 -device scsi-hd,drive=drive0,bus=scsi0.0 -drive format=raw,if=none,discard=unmap,aio=native,cache.direct=on,id=drive0,file=$HOME/persistent/vm/damyan2.raw -netdev user,id=net0,hostfwd=tcp::10023-:22 -device virtio-net-pci,netdev=net0,mac=02:02:11:57:11:57,bootindex=1 -netdev bridge,id=net1,br=test0 -device virtio-net-pci,netdev=net1,mac=02:02:11:57:11:58,bootindex=0 -enable-kvm -cpu host'
 alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 
