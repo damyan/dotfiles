@@ -7,11 +7,16 @@ set -e
 #trap read debug
 #
 suffix=$(date +%Y-%m-%d-%H-%M)
-dot_files_folder="${HOME}/.dotfiles"
-backup_folder="${HOME}/.backup"
+dot_files_folder="${HOME}/persistent/.dotfiles"
+backup_folder="${HOME}/persistent/.backup"
+this_dir="$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 if [ ! -d "${backup_folder}" ]; then
   mkdir -p "${backup_folder}"
+fi
+
+if [ "$dot_files_folder" != "$this_dir" ]; then
+  cp -rf "$this_dir" "${dot_files_folder%/*}"
 fi
 
 function config_mkv {
