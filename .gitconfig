@@ -5,3 +5,5 @@
   name = Damyan Yordanov
 [pull]
   rebase = true
+[rebase]
+  autoStash = true
