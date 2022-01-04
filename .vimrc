@@ -44,7 +44,7 @@ set nowritebackup
 set noswapfile
 
 nmap <silent> gx :bdelete<CR>
-nmap <silent> gc :bufdo :bdelete<CR>
+nmap <silent> gX :bufdo :bdelete<CR>
 nmap <silent> [oo :set list number<CR>
 nmap <silent> ]oo :set nolist nonumber<CR>
 nmap <silent> ]oa :nohlsearch<CR>
@@ -116,6 +116,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-commentary'
 Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
