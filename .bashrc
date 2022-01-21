@@ -143,6 +143,7 @@ alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
 alias k='kubectl'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
+alias aceproxy='docker run --rm --platform linux/amd64 -d -p 8000:8000 --name aceproxy ikatson/aceproxy'
 
 # create and enter directory
 mcd() { mkdir -p "$1" && cd "$1"; }
