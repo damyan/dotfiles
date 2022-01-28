@@ -17,3 +17,5 @@
   default = current
 [commit]
 	verbose = true
+[core]
+  ignoreCase = false
