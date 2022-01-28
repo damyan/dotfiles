@@ -118,6 +118,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 export EDITOR="vim"
 export GOPATH=~/go
 export HISTTIMEFORMAT="%d/%m/%y %T "
