@@ -58,6 +58,8 @@ nmap <silent> gn :NERDTreeToggle<CR>
 nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>:noh<CR>
 nmap <silent> gr :GoRun %<CR>
 
+nmap <silent> g/ :RecentNotes<CR>
+
 nmap <silent> g( i(<Esc>ea)<Esc>
 nmap <silent> G( i(<Esc>eA)<Esc>
 
