@@ -145,3 +145,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " abbreviations
 iab shebang #!/usr/bin/env bash<CR>set -euo pipefail<CR>
 iab ifte if [ ]; then<CR>echo bla<CR>else<CR>echo blub<CR>fi<c-o>?\[ \]?e
+
+" wider navigation tree
+let g:NERDTreeWinSize=55
