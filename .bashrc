@@ -133,7 +133,7 @@ echo -e "\033[0;31mOS \033[1;37m:" "\033[1;33m$(uname -a)"
 echo -e "\033[0;31mUptime \033[1;37m: \033[1;33m$(uptime)"
 echo -e "\033[0;31mLocal Time \033[1;37m: \033[1;33m$(date)"
 echo -e "\033[0;31mDirectory \033[1;37m: \033[1;33m$(pwd)"
-echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h -x tmpfs)\033[0;29m"
+echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h)\033[0;29m"
 
 alias fs='[ -n "$TMUX" ] && eval $(tmux showenv -s SSH_AUTH_SOCK) && fc -s'
 alias news-err='cat ~/.newsboat/error.log | awk {'\''print $6'\''} | sort -nr | uniq -c | sort -nr'
