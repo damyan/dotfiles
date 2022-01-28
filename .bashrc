@@ -218,4 +218,5 @@ eval `keychain -q id_rsa --eval`
 eval "$(starship init bash)"
 
 # needed for git PGP-signed commits
+# also needed for sops
 export GPG_TTY=$(tty)
