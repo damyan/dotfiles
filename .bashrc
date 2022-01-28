@@ -220,3 +220,14 @@ eval "$(starship init bash)"
 # needed for git PGP-signed commits
 # also needed for sops
 export GPG_TTY=$(tty)
+
+#eval `keychain -q id_rsa --eval`
+alias get-config4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp4" ] }'\'' http://10.96.10.3:8000/ | jq'
+alias get-config6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp6" ] }'\'' http://10.96.10.3:8000/ | jq'
+alias get-leases4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease4-get-all", "service": [ "dhcp4" ] }'\'' http://10.96.10.3:8000/ | jq'
+alias get-leases6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease6-get-all", "service": [ "dhcp6" ] }'\'' http://10.96.10.3:8000/ | jq'
+
+# auto completion
+command -v flux >/dev/null && . <(flux completion bash)
+command -v kubectl >/dev/null && . <(kubectl completion bash)
+command -v kustomize >/dev/null && . <(kustomize completion bash)
