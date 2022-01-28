@@ -145,6 +145,8 @@ alias adminoff='/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --
 alias fs='[ -n "$TMUX" ] && eval $(tmux showenv -s SSH_AUTH_SOCK) && fc -s'
 alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
 alias k='kubectl'
+alias mcoff='$HOME/bin/mcafee-start-stop.sh stop'
+alias mcon='$HOME/bin/mcafee-start-stop.sh start'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 
 alias ga="git add"
