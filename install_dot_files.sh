@@ -110,6 +110,22 @@ function config_git {
   echo -e "#################### git ####################\n"
 }
 
+function config_mutt {
+  echo "#################### mutt ####################"
+  mutt_config_path=.muttrc
+
+  if [ -L "${HOME}/${mutt_config_path}" ]; then
+    echo "mutt config already a symlink, nothing to do"
+  else
+    if [ -f "${HOME}/${mutt_config_path}" ]; then
+      mv "${HOME}/${mutt_config_path}" "${backup_folder}/${mutt_config_path}-${suffix}"
+    fi
+    ln -s "${dot_files_folder}/${mutt_config_path}" "${HOME}/${mutt_config_path}"
+    echo "mutt: done"
+  fi
+  echo -e "#################### mutt ####################\n"
+}
+
 function config_and_install_starship {
   echo "#################### starship ####################"
   starship_config_path=starship.toml
@@ -142,5 +158,7 @@ config_tmux
 config_bash
 
 config_git
+
+config_mutt
 
 config_and_install_starship
