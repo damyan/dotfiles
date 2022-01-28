@@ -140,12 +140,12 @@ echo -e "\033[0;31mLocal Time \033[1;37m: \033[1;33m$(date)"
 echo -e "\033[0;31mDirectory \033[1;37m: \033[1;33m$(pwd)"
 echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h)\033[0;29m"
 
+alias admin='/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
+alias adminoff='/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --remove'
 alias fs='[ -n "$TMUX" ] && eval $(tmux showenv -s SSH_AUTH_SOCK) && fc -s'
-alias news-err='cat ~/.newsboat/error.log | awk {'\''print $6'\''} | sort -nr | uniq -c | sort -nr'
-alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
+alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
 alias k='kubectl'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
-alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
 
 alias ga="git add"
 alias gaa="git add -A"
