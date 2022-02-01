@@ -24,3 +24,6 @@ eval `keychain -q id_rsa --eval`
 
 # git bash by default
 GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh
+
+# needed for git PGP-signed commits
+export GPG_TTY=$(tty)
