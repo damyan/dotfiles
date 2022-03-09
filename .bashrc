@@ -126,7 +126,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HTTP_PROXY=""
 export LC_ALL="en_US.UTF-8"
 export LOCALDOMAIN="0x4711.org"
-export LSCOLORS=ExfxcxdxBxegedabagacad
+export LSCOLORS=ExBxcxdxCxegedabagacad
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$GOPATH/bin:$HOME/bin:$PATH"
 export TERM=xterm-256color
 
