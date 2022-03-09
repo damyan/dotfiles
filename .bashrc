@@ -129,8 +129,8 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export HTTP_PROXY=""
 export LC_ALL="en_US.UTF-8"
 export LOCALDOMAIN="0x4711.org"
-export LSCOLORS=ExfxcxdxBxegedabagacad
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$GOPATH/bin:$HOME/bin:$PATH"
+export LSCOLORS=ExBxcxdxCxegedabagacad
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$GOPATH/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
 export TERM=xterm-256color
 
 echo -e "\033[0;31mHostname \033[1;37m: \033[1;33m$(hostname)"
