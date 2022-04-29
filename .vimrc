@@ -47,6 +47,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+set mmp=2000000
+
 nmap <silent> gx :bdelete<CR>
 nmap <silent> gX :bufdo :bdelete<CR>
 nmap <silent> [oo :set list number<CR>
