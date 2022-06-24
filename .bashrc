@@ -19,6 +19,9 @@ alias news-err='cat ~/.newsboat/error.log | awk {'\''print $6'\''} | sort -nr | 
 alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 
+# create and enter directory
+mcd() { mkdir -p "$1" && cd "$1"; }
+
 # ssh agent
 eval `keychain -q id_rsa --eval`
 
