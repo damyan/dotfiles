@@ -8,6 +8,9 @@ if has("syntax")
   syntax on
 endif
 
+scriptencoding utf-8
+set encoding=utf-8
+
 set background=dark
 set history=1000
 set undolevels=1000
