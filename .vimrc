@@ -120,6 +120,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-syntastic/syntastic'
 call vundle#end()
