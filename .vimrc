@@ -108,6 +108,10 @@ let python_highlight_all = 1
 command! Q q
 command! W w
 
+" change git diff colours
+hi diffAdded cterm=NONE ctermfg=DarkGreen
+hi diffRemoved cterm=NONE ctermfg=DarkRed
+
 "vmap X /y<C-R>"<CR>
 
 " vundle plugins
