@@ -148,6 +148,7 @@ alias ls='ls -G'
 alias k='kubectl'
 alias mcoff='$HOME/bin/mcafee-start-stop.sh stop'
 alias mcon='$HOME/bin/mcafee-start-stop.sh start'
+alias run-pod='kubectl run --rm -i --tty ubuntu --image=ubuntu --restart=Never -- bash'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 
 alias ga="git add"
