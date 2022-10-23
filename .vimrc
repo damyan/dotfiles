@@ -138,3 +138,10 @@ let g:go_auto_type_info = 1
 " always show EOFs. show tabs, unless go file
 set listchars=tab:▸\ ,eol:¬
 autocmd FileType go set listchars+=tab:\ \ 
+
+" disable auto comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" abbreviations
+iab shebang #!/usr/bin/env bash<CR>set -euo pipefail<CR>
+iab ifte if [ ]; then<CR>echo bla<CR>else<CR>echo blub<CR>fi<c-o>?\[ \]?e
