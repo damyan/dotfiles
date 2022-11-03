@@ -74,6 +74,9 @@ nmap <silent> G[ i[<Esc>eA]<Esc>
 nmap <silent> g" i"<Esc>ea"<Esc>
 nmap <silent> G" i"<Esc>eA"<Esc>
 
+nmap <silent> g` i`<Esc>ea`<Esc>
+nmap <silent> G` i`<Esc>eA`<Esc>
+
 nmap <silent> g' i'<Esc>ea'<Esc>
 nmap <silent> G' i'<Esc>eA'<Esc>
 
@@ -154,6 +157,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " abbreviations
 iab shebang #!/usr/bin/env bash<CR>set -euo pipefail<CR>
 iab ifte if [ ]; then<CR>echo bla<CR>else<CR>echo blub<CR>fi<c-o>?\[ \]?e
+iab utba Update team bootstrap's activities
 
 " wider navigation tree
 let g:NERDTreeWinSize=55
