@@ -104,6 +104,10 @@ map <c-h> <c-w>h
 vnoremap < <gv  " better indentation
 vnoremap > >gv  " better indentation
 
+" sops in-place encrypt/decrypt
+cnoremap sei !sops -e -i %
+cnoremap sdi !sops -d -i %
+
 " needed?
 let g:skip_defaults_vim = 1
 let python_highlight_all = 1
