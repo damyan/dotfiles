@@ -146,6 +146,8 @@ alias fs='[ -n "$TMUX" ] && eval $(tmux showenv -s SSH_AUTH_SOCK) && fc -s'
 alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
 alias ls='ls -G'
 alias k='kubectl'
+alias kg='kubectl get'
+alias kga='kubectl get -A'
 alias kc='kubectx'
 alias mcoff='$HOME/bin/mcafee-start-stop.sh stop'
 alias mcon='$HOME/bin/mcafee-start-stop.sh start'
@@ -212,7 +214,7 @@ __git_complete gp _git_push
 mcd() { mkdir -p "$1" && cd "$1"; }
 
 # ssh agent
-eval `keychain -q id_rsa --eval`
+eval `keychain -q id_rsa deploy --eval`
 
 # git bash by default
 # GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh
@@ -234,3 +236,9 @@ alias get-leases6='curl -X POST -H "Content-Type: application/json" -d '\''{ "co
 command -v flux >/dev/null && . <(flux completion bash)
 command -v kubectl >/dev/null && . <(kubectl completion bash)
 command -v kustomize >/dev/null && . <(kustomize completion bash)
+command -v gardenlogin >/dev/null && . <(gardenlogin completion bash)
+
+complete -F __start_kubectl k
+
+# added by travis gem
+[ ! -s /Users/I542373/.travis/travis.sh ] || source /Users/I542373/.travis/travis.sh
