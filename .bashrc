@@ -131,7 +131,10 @@ echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h -x tmpfs)\033[0;29m"
 alias fs='[ -n "$TMUX" ] && eval $(tmux showenv -s SSH_AUTH_SOCK) && fc -s'
 alias git-bash='GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh'
 alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
+alias get-k8s-config='ssh damyan-dev2 "sudo cp /home/ignition/.kube/config . && sudo chown ignition:ignition config" && scp damyan-dev2:config ~/.kube/'
 alias k='kubectl'
+alias kg='kubectl get'
+alias kga='kubectl get -A'
 alias start-vm-pxe='sudo /media/data/vm/start-vm-damyan --bridge mgmt0 --pxe /media/data/vm/damyan'
 alias start-vm='sudo /media/data/vm/start-vm-damyan --bridge mgmt0 /media/data/vm/damyan.raw'
 alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
@@ -209,3 +212,5 @@ alias get-leases6='curl -X POST -H "Content-Type: application/json" -d '\''{ "co
 command -v flux >/dev/null && . <(flux completion bash)
 command -v kubectl >/dev/null && . <(kubectl completion bash)
 command -v kustomize >/dev/null && . <(kustomize completion bash)
+
+complete -F __start_kubectl k
