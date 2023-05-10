@@ -142,6 +142,9 @@ echo -e "\033[0;31m\033[1;37m\033[1;33m$(df -h)\033[0;29m"
 
 alias admin='/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add'
 alias adminoff='/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --remove'
+alias dnsg='networksetup -setdnsservers Wi-Fi 8.8.8.8 && networksetup -getdnsservers Wi-Fi'
+alias dnss='networksetup -setdnsservers Wi-Fi 10.17.122.10 10.17.121.30 && networksetup -getdnsservers Wi-Fi'
+alias dns='networksetup -getdnsservers Wi-Fi'
 alias fs='[ -n "$TMUX" ] && eval $(tmux showenv -s SSH_AUTH_SOCK) && fc -s'
 alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
 alias ls='ls -G'
