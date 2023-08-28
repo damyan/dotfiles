@@ -19,6 +19,7 @@
 	verbose = true
 [core]
   ignoreCase = false
+	excludesfile = /Users/I542373/.gitignore
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

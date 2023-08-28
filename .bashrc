@@ -125,6 +125,7 @@ fi
 #export KUBECONFIG=$HOME/.kube/config-garden-onmetal.yaml
 export EDITOR="vim"
 export GOPATH=~/go
+export GO111MODULE=auto
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HTTP_PROXY=""
 export LC_ALL="en_US.UTF-8"
@@ -155,8 +156,9 @@ alias kc='kubectx'
 alias kd='kubectl describe'
 alias mcoff='$HOME/bin/mcafee-start-stop.sh stop'
 alias mcon='$HOME/bin/mcafee-start-stop.sh start'
+alias restart-gpg-agent='gpg-connect-agent reloadagent /bye'
 alias run-pod='kubectl run --rm -i --tty ubuntu --image=ubuntu --restart=Never -- bash'
-alias start-build-container='docker run -v $HOME/Repos:/src -it -u 0 build-go-1.20 bash'
+alias start-build-container='docker rm dev && docker run --name dev --platform=linux/amd64 -v $HOME/Repos:/src -it -u 0 ghcr.io/damyan/sak-dev bash'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 
 alias ga="git add"
