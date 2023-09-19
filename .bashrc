@@ -145,7 +145,7 @@ alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 mcd() { mkdir -p "$1" && cd "$1"; }
 
 # ssh agent
-eval `keychain -q id_rsa --eval`
+# eval `keychain -q id_rsa --eval`
 
 # git bash by default
 # GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh
