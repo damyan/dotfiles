@@ -50,12 +50,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+  # We have color support; assume it's compliant with Ecma-48
+  # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+  # a case would tend to support setf rather than setaf.)
+  color_prompt=yes
     else
-	color_prompt=
+  color_prompt=
     fi
 fi
 
@@ -155,6 +155,7 @@ alias kga='kubectl get -A'
 alias kc='kubectx'
 alias kd='kubectl describe'
 alias kn='kubectl -n '
+alias ctk='set-kubeconfig $(paste-clipboard-to-temp)'
 alias mcoff='$HOME/bin/mcafee-start-stop.sh stop'
 alias mcon='$HOME/bin/mcafee-start-stop.sh start'
 alias restart-gpg-agent='gpg-connect-agent reloadagent /bye'
@@ -220,6 +221,20 @@ __git_complete gp _git_push
 
 # create and enter directory
 mcd() { mkdir -p "$1" && cd "$1"; }
+
+function paste-clipboard-to-temp() {
+  local file="$(mktemp)"
+  pbpaste > "$file"
+  echo "$file"
+}
+
+function set-kubeconfig() {
+  if [[ "$1" == "" ]]; then
+    echo "no kubeconfig specified"
+    return 1
+  fi
+  export KUBECONFIG=$1
+}
 
 # ssh agent
 eval `keychain -q id_rsa deploy --eval`
