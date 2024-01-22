@@ -1,3 +1,10 @@
+# append commands to history file immediately (not at end of session).
+export PROMPT_COMMAND='history -a'
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=50000
+HISTFILESIZE=50000
+
 export EDITOR="vim"
 export GOPATH=~/go
 export HISTTIMEFORMAT="%d/%m/%y %T "
