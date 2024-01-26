@@ -110,6 +110,29 @@ function config_git {
   echo -e "#################### git ####################\n"
 }
 
+function config_and_install_starship {
+  echo "#################### starship ####################"
+  starship_config_path=starship.toml
+
+  if [ ! -d "${HOME}/.config" ]; then
+    mkdir "${HOME}/.config"
+  fi
+
+  if [ -L "${HOME}/.config/${starship_config_path}" ]; then
+    echo "Starship config already a symlink, nothing to do"
+  else
+    if [ -f "${HOME}/.config/${starship_config_path}" ]; then
+      mv "${HOME}/.config/${starship_config_path}" "${backup_folder}/${starship_config_path}-${suffix}"
+    fi
+    ln -s "${dot_files_folder}/${starship_config_path}" "${HOME}/.config/${starship_config_path}"
+    echo "starship: done"
+  fi
+
+  curl -sSO https://starship.rs/install.sh
+  sh install.sh -b ~/bin -f 1>/dev/null && rm install.sh
+  echo -e "#################### starship ####################\n"
+}
+
 config_mkv
 
 config_vim
@@ -119,3 +142,5 @@ config_tmux
 config_bash
 
 config_git
+
+config_and_install_starship
