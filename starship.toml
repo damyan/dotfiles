@@ -1,0 +1,37 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+discharging_symbol = '💀 '
+
+[[battery.display]]
+threshold = 10
+style = 'bold red'
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[\$](white)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[directory]
+truncation_symbol = '…/'
+truncate_to_repo = false
+
+[gcloud]
+disabled = true
+
+[git_branch]
+symbol = '🌱 '
+
+[git_commit]
+tag_disabled = false
+tag_symbol = '🔖 '
+
+[time]
+format = '[$time]($style) '
+disabled = false
+style = 'white'
