@@ -135,6 +135,7 @@ alias get-k8s-config='ssh damyan-dev2 "sudo cp /home/ignition/.kube/config . && 
 alias k='kubectl'
 alias kg='kubectl get'
 alias kga='kubectl get -A'
+alias kgn='kubectl get -n '
 alias kd='kubectl describe'
 alias kn='kubectl -n '
 alias start-vm-pxe='sudo /media/data/vm/start-vm-damyan --bridge mgmt0 --pxe /media/data/vm/damyan'
