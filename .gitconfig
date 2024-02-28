@@ -9,3 +9,6 @@
   autoStash = true
 [init]
   defaultBranch = main
+[push]
+  autoSetupRemote = true
+  default = current
