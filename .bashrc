@@ -222,6 +222,9 @@ __git_complete gco _git_checkout
 __git_complete gd _git_diff
 __git_complete gp _git_push
 
+alias sc="export KUBECONFIG=$HOME/.kube/all-cluster-config.yaml"
+alias usc="unset KUBECONFIG"
+
 # create and enter directory
 mcd() { mkdir -p "$1" && cd "$1"; }
 
