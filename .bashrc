@@ -27,6 +27,62 @@ alias news-err='cat ~/.newsboat/error.log | awk {'\''print $6'\''} | sort -nr | 
 alias upgrade='sudo apt update; sudo apt full-upgrade; sudo apt autoremove'
 alias vim-notes='cd /$HOME/.vim/bundle/vim-notes/misc/notes/user'
 
+alias ga="git add"
+alias gaa="git add -A"
+alias gac!="git add -u && git commit --amend --no-edit"
+alias gacp!="git add -u && git commit --amend --no-edit && git push --force-with-lease"
+alias gacep!="git add -u && git commit --amend && git push --force-with-lease"
+alias gap="git add -p"
+alias gau="git add -u"
+alias gb="git branch -avv"
+alias gco="git checkout"
+alias gc="git commit"
+alias gcm="git commit --message"
+alias gc!="git commit --amend --no-edit"
+alias gce!="git commit --amend"
+alias gcp="git cherry-pick"
+alias gcpa="git cherry-pick --abort"
+alias gcpc="git cherry-pick --continue"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gl="git log --perl-regexp --author='^((?!dependabot).*)$'"
+alias glp="git log -p --perl-regexp --author='^((?!dependabot).*)$'"
+alias gls="git log --stat --perl-regexp --author='^((?!dependabot).*)$'"
+alias gll="git log -n 1 --perl-regexp --author='^((?!dependabot).*)$'"
+alias glsl="git log -n 1 --stat --perl-regexp --author='^((?!dependabot).*)$'"
+alias glpl="git log -n 1 -p --perl-regexp --author='^((?!dependabot).*)$'"
+alias gl5="git log -n 5 --perl-regexp --author='^((?!dependabot).*)$'"
+alias gls5="git log -n 5 --stat --perl-regexp --author='^((?!dependabot).*)$'"
+alias glp5="git log -n 5 -p --perl-regexp --author='^((?!dependabot).*)$'"
+alias gp="git push"
+alias gpu="git pull -p"
+alias gp!="git push --force-with-lease"
+alias gra="git rebase --abort"
+alias grc="git rebase --continue"
+alias grm="git rebase main"
+alias grim="git rebase -i main"
+alias grmm="git rebase master"
+alias grimm="git rebase -i master"
+alias grs="git reset"
+alias grsh="git reset --hard"
+alias gres="git restore -SW"
+alias grv="git remote -v"
+alias gst="git status"
+alias gstb="git status -b"
+alias gsta="git stash"
+alias gstap="git stash pop"
+alias gstac="git stash clean"
+alias gstad="git stash drop"
+alias gsh="git show"
+alias gshl="git shortlog -sn"
+alias gucb="branch=\$(git branch --show-current); git checkout main; git pull; git checkout \$branch; git rebase main"
+alias gucbm="branch=\$(git branch --show-current); git checkout master; git pull; git checkout \$branch; git rebase master"
+__git_complete ga _git_add
+__git_complete gap _git_add
+__git_complete gco _git_checkout
+__git_complete gd _git_diff
+__git_complete gp _git_push
+
 # create and enter directory
 mcd() { mkdir -p "$1" && cd "$1"; }
 
