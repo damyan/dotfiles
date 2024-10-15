@@ -132,6 +132,7 @@ export LC_ALL="en_US.UTF-8"
 export LOCALDOMAIN="0x4711.org"
 export LSCOLORS=ExBxcxdxCxegedabagacad
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:$GOPATH/bin:$HOME/bin:$HOME/.krew/bin:$PATH"
+export PATH="$(brew --prefix)/opt/python@3.12/libexec/bin:$PATH"
 export TERM=xterm-256color
 
 echo -e "\033[0;31mHostname \033[1;37m: \033[1;33m$(hostname)"
@@ -154,7 +155,7 @@ alias k='kubectl'
 alias kg='kubectl get'
 alias kga='kubectl get -A'
 alias kgn='kubectl get -n '
-alias kc='kubectx'
+alias kc='export KUBECONFIG=$HOME/.kube/all-cluster-config.yaml && kubectx'
 alias kd='kubectl describe'
 alias kn='kubectl -n '
 alias ctk='set-kubeconfig $(paste-clipboard-to-temp)'
@@ -255,7 +256,6 @@ eval "$(starship init bash)"
 # also needed for sops
 export GPG_TTY=$(tty)
 
-#eval `keychain -q id_rsa --eval`
 alias get-config4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp4" ] }'\'' http://10.96.10.3:8000/ | jq'
 alias get-config6='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "config-get", "service": [ "dhcp6" ] }'\'' http://10.96.10.3:8000/ | jq'
 alias get-leases4='curl -X POST -H "Content-Type: application/json" -d '\''{ "command": "lease4-get-all", "service": [ "dhcp4" ] }'\'' http://10.96.10.3:8000/ | jq'
