@@ -278,3 +278,9 @@ complete -F __start_kubectl k
 
 # added by travis gem
 [ ! -s /Users/I542373/.travis/travis.sh ] || source /Users/I542373/.travis/travis.sh
+
+export PATH=$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH
+export PATH=$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH
+export PATH=$(brew --prefix)/opt/gnu-tar/libexec/gnubin:$PATH
+export PATH=$(brew --prefix)/opt/grep/libexec/gnubin:$PATH
+export PATH=$(brew --prefix)/opt/gzip/bin:$PATH
