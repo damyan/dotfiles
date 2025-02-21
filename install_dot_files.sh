@@ -105,7 +105,19 @@ function config_git {
       mv "${HOME}/${git_config_path}" "${backup_folder}/${git_config_path}-${suffix}"
     fi
     ln -s "${dot_files_folder}/${git_config_path}" "${HOME}/${git_config_path}"
-    echo "Git: done"
+    echo "Git config: done"
+  fi
+
+  git_ignore_path=.gitignore
+
+  if [ -L "${HOME}/${git_ignore_path}" ]; then
+    echo "Git ignore already a symlink, nothing to do"
+  else
+    if [ -f "${HOME}/${git_ignore_path}" ]; then
+      mv "${HOME}/${git_ignore_path}" "${backup_folder}/${git_ignore_path}-${suffix}"
+    fi
+    ln -s "${dot_files_folder}/${git_ignore_path}" "${HOME}/${git_ignore_path}"
+    echo "Git ignore: done"
   fi
   echo -e "#################### git ####################\n"
 }
