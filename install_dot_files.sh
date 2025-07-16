@@ -161,6 +161,29 @@ function config_and_install_starship {
   echo -e "#################### starship ####################\n"
 }
 
+function config_ghostty {
+  echo "#################### ghostty ####################"
+  if [[ "$(uname)" != "Darwin" ]]; then
+    echo "ghostty: skipping on non-macOS"
+    echo -e "#################### ghostty ####################\n"
+    return
+  fi
+
+  ghostty_config_path="Library/Application Support/com.mitchellh.ghostty/config"
+  ghostty_local_file=.ghosttyconfig
+
+  if [ -L "${HOME}/${ghostty_config_path}" ]; then
+    echo "ghostty config already a symlink, nothing to do"
+  else
+    if [ -f "${HOME}/${ghostty_config_path}" ]; then
+      mv "${HOME}/${ghostty_config_path}" "${backup_folder}/${ghostty_local_file}-${suffix}"
+    fi
+    ln -s "${dot_files_folder}/${ghostty_local_file}" "${HOME}/${ghostty_config_path}"
+    echo "ghostty: done"
+  fi
+  echo -e "#################### ghostty ####################\n"
+}
+
 config_mkv
 
 config_vim
@@ -174,3 +197,5 @@ config_git
 config_mutt
 
 config_and_install_starship
+
+config_ghostty
