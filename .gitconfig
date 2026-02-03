@@ -1,27 +1,41 @@
 [receive]
-  denyCurrentBranch = ignore
+	denyCurrentBranch = ignore
 [user]
-  email = damyan.yordanov@sap.com
-  name = Damyan Yordanov
-  signingkey = EF0423AD503A0538F95AB209384EB14BBE5E06CD
+	email = damyan.yordanov@sap.com
+	name = Damyan Yordanov
+	signingkey = EF0423AD503A0538F95AB209384EB14BBE5E06CD
 [commit]
-  gpgsign = true
+	gpgsign = true
+	verbose = true
 [pull]
-  rebase = true
+	rebase = true
 [rebase]
-  autoStash = true
+	autoStash = true
+	updateRefs = true
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [push]
-  autoSetupRemote = true
-  default = current
+	autoSetupRemote = true
+	default = current
+	followTags = true
 [commit]
 	verbose = true
 [core]
-  ignoreCase = false
+	ignoreCase = false
 	excludesfile = /Users/I542373/.gitignore
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[diff]
+	algorithm = histogram
+	; colorMoved = plain
+	; renames = true
+[rerere]
+	enabled = true
+	autoupdate = true
