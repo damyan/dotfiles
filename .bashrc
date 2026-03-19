@@ -77,6 +77,8 @@ alias gsh="git show"
 alias gshl="git shortlog -sn"
 alias gucb="branch=\$(git branch --show-current); git checkout main; git pull; git checkout \$branch; git rebase main"
 alias gucbm="branch=\$(git branch --show-current); git checkout master; git pull; git checkout \$branch; git rebase master"
+
+[ -f /usr/share/bash-completion/completions/git ] && . /usr/share/bash-completion/completions/git
 __git_complete ga _git_add
 __git_complete gap _git_add
 __git_complete gco _git_checkout
