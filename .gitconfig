@@ -12,3 +12,5 @@
 [push]
   autoSetupRemote = true
   default = current
+[commit]
+	verbose = true
