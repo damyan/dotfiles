@@ -224,6 +224,11 @@ alias gshl="git shortlog -sn"
 alias gucb="branch=\$(git branch --show-current); git checkout main; git pull; git checkout \$branch; git rebase main"
 alias gucbm="branch=\$(git branch --show-current); git checkout master; git pull; git checkout \$branch; git rebase master"
 
+alias cl="claude"
+alias ccl="cd \$HOME/claude && claude"
+alias icl="claude --settings ~/.claude-custom/settings.json"
+alias cicl="cd \$HOME/claude && claude --settings ~/.claude-custom/settings.json"
+
 [ -f /usr/share/bash-completion/completions/git ] && . /usr/share/bash-completion/completions/git
 __git_complete ga _git_add
 __git_complete gap _git_add
