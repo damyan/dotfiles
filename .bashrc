@@ -152,6 +152,8 @@ alias fs='[ -n "$TMUX" ] && eval $(tmux showenv -s SSH_AUTH_SOCK) && fc -s'
 alias get_bot_token="sops -d ~/Repos/landscape-dev/secrets/creds.yaml | yq .GITHUB_TOKEN | tr -d '\n' | pbcopy && sleep 10 && pbcopy < /dev/null"
 alias git-clean-local='git branch -vv | fgrep ": gone]" | awk '\''{ print $1 }'\'' | xargs -n 1 git branch -D'
 alias ls='ls -G'
+alias kar='kubectl api-resources'
+alias kav='kubectl api-versions'
 alias k='kubectl'
 alias kg='kubectl get'
 alias kga='kubectl get -A'
@@ -257,7 +259,7 @@ function set-kubeconfig() {
 }
 
 # ssh agent
-eval `keychain -q id_rsa deploy --eval`
+eval `keychain -q id_ed25519 --eval`
 
 # git bash by default
 # GIT_PROMPT_ONLY_IN_REPO=1; source ~/.bash-git-prompt/gitprompt.sh
@@ -280,7 +282,7 @@ command -v kubectl >/dev/null && . <(kubectl completion bash)
 command -v kustomize >/dev/null && . <(kustomize completion bash)
 command -v gardenlogin >/dev/null && . <(gardenlogin completion bash)
 
-complete -F __start_kubectl k
+complete -F __start_kubectl k kg kga kgn kd kn
 
 # added by travis gem
 [ ! -s /Users/I542373/.travis/travis.sh ] || source /Users/I542373/.travis/travis.sh
