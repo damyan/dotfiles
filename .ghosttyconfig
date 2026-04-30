@@ -44,6 +44,7 @@
 
 mouse-hide-while-typing = true
 copy-on-select = clipboard
+selection-word-chars = " \t'\"│`|,()[]{}<>$"
 
 font-thicken = true
 font-family = Monaco
